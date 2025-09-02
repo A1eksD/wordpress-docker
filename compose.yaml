@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  db:
+    image: mariadb:11
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+    env_file:
+      - db.env
+    volumes:
+      - db_data:/app/db/
+
+  wordpress:
+    image: wordpress:6.5-apache
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    restart: unless-stopped
+    env_file:
+      - wordpress.env
+    
+    volumes:
+      - wp_data:/app/wp/
+
+volumes:
+  db_data:
+  wp_data:
