@@ -24,7 +24,7 @@ This repository is a docker compose example of how to set up a wordpress with a 
     ```
 
 1. **Create .env**
-    Create a `db.env` and `wordpress.env` on the same level as the compose.yaml, where you set the environment variables:
+    Create `db.env` and `wordpress.env` in the same directory as compose.yaml, and set the required environment variables inside them.
     ```bash
         # db.env
         MYSQL_ROOT_PASSWORD=${EXAMPLE_ROOT_PW}
