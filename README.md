@@ -42,7 +42,7 @@ This repository is a docker compose example of how to set up a wordpress with a 
     
 1. **Build and run** : use Docker Compose to build and start the container.
     ```bash
-        docker-compose up --build
+        docker-compose -f compose.yaml up -d
     ```
 
 ## Usage
