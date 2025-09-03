@@ -1,28 +1,27 @@
-version: '3.9'
 
 services:
   db:
-    image: mariadb:11
+    image: bitnami/mariadb:latest
     ports:
       - "3306:3306"
     restart: unless-stopped
     env_file:
-      - db.env
+      - .env
     volumes:
-      - db_data:/app/db/
+      - db_data:/bitnami/mariadb 
 
   wordpress:
-    image: wordpress:6.5-apache
+    image: bitnami/wordpress:latest
     ports:
-      - "8080:80"
+      - "8080:8080"
     depends_on:
       - db
     restart: unless-stopped
     env_file:
-      - wordpress.env
+      - .env
     
     volumes:
-      - wp_data:/app/wp/
+      - wp_data:/bitnami/wordpress
 
 volumes:
   db_data:
