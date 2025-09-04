@@ -1,0 +1,28 @@
+
+services:
+  db:
+    image: bitnami/mariadb:11.8.3
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - db_data:/bitnami/mariadb 
+
+  wordpress:
+    image: bitnami/wordpress:6.5.3
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    restart: unless-stopped
+    env_file:
+      - .env
+    
+    volumes:
+      - wp_data:/bitnami/wordpress
+
+volumes:
+  db_data:
+  wp_data:
