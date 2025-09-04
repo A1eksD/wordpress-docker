@@ -27,7 +27,7 @@ cd wordpress-docker
 1. **Create .env**
 Create `.env` in the same directory as compose.yaml, and set the required environment variables inside them.
 ```bash
-touch .env
+cp example.env .env
 ```
 
 Fill the file with following variables: 
